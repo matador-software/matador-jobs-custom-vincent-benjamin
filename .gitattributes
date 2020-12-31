@@ -1,0 +1,15 @@
+# exclude .gitignore and similar from the generated tarball
+.editorconfig     export-ignore
+.distignore       export-ignore
+.git*             export-ignore
+.jshintrc         export-ignore
+.nvmrc            export-ignore
+gulpfile.js       export-ignore
+composer*         export-ignore
+package.json      export-ignore
+package-lock.json export-ignore
+resources         export-ignore
+.DS_Store         export-ignore
+Thumbs.db         export-ignore
+*.tar.gz          export-ignore
+*.zip             export-ignore

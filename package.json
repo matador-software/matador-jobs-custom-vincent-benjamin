@@ -1,0 +1,13 @@
+{
+  "name": "matador-jobs-custom-vincent-benjamin",
+  "version": "1.0.0",
+  "license": "GPL-3.0-or-later",
+  "repository": "github:matador-software/matador-jobs-custom-vincent-benjamin",
+  "scripts": {
+    "build": "gulp --production"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-wp-pot": "^2.3.6"
+  }
+}

@@ -1,0 +1,14 @@
+.distignore
+.editorconfig
+.jshintrc
+.git
+.gitignore
+.DS_Store
+Thumbs.db
+package-lock.json
+tests
+vendor
+resources
+node_modules
+*.tar.gz
+*.zip
