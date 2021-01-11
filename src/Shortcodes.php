@@ -54,7 +54,6 @@ class Shortcodes {
 	public static function matador_custom_search_shortcode( $atts = array() ) {
 		$atts = shortcode_atts( array(
 			'fields' => 'keyword',
-			'defaults' => '',
 			'hidden' => '',
 			'class'  => null,
 		), $atts );
@@ -79,37 +78,19 @@ class Shortcodes {
 			} else {
 				$args['hidden'] = Helper::array_values_escaped( $args['hidden'] );
 			}
-			foreach ( $args['hidden'] as $key => $field ) {
-				if ( 'text' === $field ) {
-					$args['hidden'][ $key ] = 'keyword';
-					continue;
-				}
-				if ( ! in_array( $field, $allowed_fields, true ) ) {
-					unset( $args['hidden'][ $key ] );
-					continue;
-				}
-			}
-		}
 
-		if ( ! empty( $args['defaults'] ) ) {
-			if ( is_string( $args['defaults'] ) ) {
-				$args['defaults'] = Helper::comma_separated_string_to_escaped_array( $args['defaults'] );
-			} else {
-				$args['defaults'] = Helper::array_values_escaped( $args['defaults'] );
-			}
+			$args['temp_hidden'] = $args['hidden'];
+			$args['hidden'] = [];
 
-			$args['temp_defaults'] = $args['defaults'];
-			$args['defaults'] = [];
-
-			foreach ( $args['temp_defaults'] as $unused => $default ) {
+			foreach ( $args['temp_hidden'] as $unused => $default ) {
 				if ( strpos( $default, ':' ) === false ) {
 					continue;
 				}
 				$parts = explode( ':', $default );
 				$parts = Helper::array_values_escaped( $parts );
-				$args['defaults'][ $parts[0] ] = $parts[1];
+				$args['hidden'][ $parts[0] ] = $parts[1];
 			}
-			unset( $args['temp_defaults'] );
+			unset( $args['temp_hidden'] );
 		}
 
 		return $args;
@@ -129,22 +110,11 @@ class Shortcodes {
 	 */
 	public static function replace_templates( $template, $name, $subdirectory ) {
 
+		unset( $subdirectory );
+
 		if ( 'jobs-search.php' === $name ) {
 			if ( file_exists( trailingslashit( Extension::$directory ) . 'templates/' . $name ) ) {
 				return trailingslashit( Extension::$directory ) . 'templates/' . $name;
-			}
-		}
-
-		if ( 'parts' === $subdirectory ) {
-			if ( 'jobs-taxonomies-select-term.php' === $name ) {
-				if ( file_exists( trailingslashit( Extension::$directory ) . 'templates/' . $subdirectory . '/' . $name ) ) {
-					return trailingslashit( Extension::$directory ) . 'templates/'  . $subdirectory . '/' . $name;
-				}
-			}
-			if ( 'jobs-search-field-keyword.php' === $name ) {
-				if ( file_exists( trailingslashit( Extension::$directory ) . 'templates/' . $subdirectory . '/' . $name ) ) {
-					return trailingslashit( Extension::$directory ) . 'templates/'  . $subdirectory . '/' . $name;
-				}
 			}
 		}
 

@@ -42,18 +42,11 @@ use matador\Job_Taxonomies;
 
 		<?php do_action( 'matador_search_form_before_fields' ); ?>
 
-		<?php foreach ( $fields as $field ) : ?>
+		<?php
+		// VB Customization START
+		if ( isset( $hidden ) ) :
 
-			<?php do_action( 'matador_search_form_before_field', $field ); ?>
-
-			<?php
-			// VB Customization START
-			if ( in_array( $field, $hidden, true ) ) :
-
-				if ( empty( $defaults[$field] ) ) {
-
-					continue;
-				}
+			foreach ( $hidden as $field => $value ) :
 
 				if ( in_array( $field, Job_Taxonomies::registered_taxonomies(), true ) ) {
 					$taxonomy = Matador::variable( $field, 'job_taxonomies' );
@@ -62,19 +55,21 @@ use matador\Job_Taxonomies;
 					$key = $field;
 				}
 
-				echo '<input type="hidden" name="' . $key . '" value="' . $defaults[$field] . '" />';
-				continue;
-			endif;
-			// VB Customization END
-			?>
+				echo '<input type="hidden" name="' . $key . '" value="' . $value . '" />';
+
+			endforeach;
+
+		endif;
+		// VB Customization END
+		?>
+
+		<?php foreach ( $fields as $field ) : ?>
+
+			<?php do_action( 'matador_search_form_before_field', $field ); ?>
 
 			<?php if ( 'keyword' === $field ) : ?>
 
-				<?php
-				// VB Customization START
-				matador_get_template_part( 'jobs-search-field', 'keyword', [ 'default' => isset( $defaults['keyword'] ) ? $defaults['keyword'] : false ] );
-				// VB Customization END
-				?>
+				<?php matador_get_template_part( 'jobs-search-field', 'keyword' ); ?>
 
 			<?php elseif ( 'reset' === $field ) : ?>
 
@@ -82,11 +77,7 @@ use matador\Job_Taxonomies;
 
 			<?php elseif ( in_array( $field, Job_Taxonomies::registered_taxonomies(), true ) ) : ?>
 
-				<?php
-				// VB Customization START
-				matador_get_template_part( 'jobs-search-field', 'taxonomy', array( 'field' => $field ) );
-				// VB Customization END
-				?>
+				<?php matador_get_template_part( 'jobs-search-field', 'taxonomy', array( 'field' => $field ) ); ?>
 
 			<?php else : ?>
 
