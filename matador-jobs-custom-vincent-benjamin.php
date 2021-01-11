@@ -5,7 +5,7 @@
  * Description: Custom Matador Jobs Pro extension for Vincent Benjamin Group.
  * Author: Jeremy Scott, Paul Bearne, Matador Software, LLC
  * Author URI: http://matadorjobs.com
- * Version: 1.0.0
+ * Version: 2.0.0
  * Text Domain: matador-custom-vincent-benjamin
  * Domain Path: /languages
  *
@@ -25,7 +25,7 @@
  * along with Matador Jobs Board. If not, see <http://www.gnu.org/licenses/>.
  *
  * @author     Jeremy Scott, Paul Bearne
- * @version    1.0.0
+ * @version    2.0.0
  */
 
 namespace matador\MatadorJobsVincentBenjamin;

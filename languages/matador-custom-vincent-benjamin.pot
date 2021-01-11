@@ -1,4 +1,4 @@
-# Copyright (C) 2020 Matador Jobs Custom Vincent Benjamin Extension
+# Copyright (C) 2021 Matador Jobs Custom Vincent Benjamin Extension
 # This file is distributed under the same license as the Matador Jobs Custom Vincent Benjamin Extension package.
 msgid ""
 msgstr ""
@@ -13,34 +13,38 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: Extension.php:165
+#: Extension.php:103
+msgid "There was an error initializing the Autoloader. Contact the developer."
+msgstr ""
+
+#: Extension.php:139
 msgid "No can do! You may not clone an instance of the plugin."
 msgstr ""
 
-#: Extension.php:179
+#: Extension.php:153
 msgid "No can do! You may not unserialize an instance of the plugin."
-msgstr ""
-
-#: Extension.php:256
-msgctxt "Job Group Singular Name."
-msgid "group"
-msgstr ""
-
-#: Extension.php:257
-msgctxt "Job Groups Plural Name."
-msgid "groups"
-msgstr ""
-
-#: Extension.php:272
-msgctxt "Job Region Singular Name."
-msgid "region"
-msgstr ""
-
-#: Extension.php:273
-msgctxt "Job Regions Plural Name."
-msgid "regions"
 msgstr ""
 
 #: matador-jobs-custom-vincent-benjamin.php:55
 msgid "The plugin Matador Jobs Custom Extension for Vincent Benjamin Group requires the Matador Jobs Pro plugin to be installed and active. Either activate the required plugin or deactivate the extension."
+msgstr ""
+
+#: src/Taxonomies.php:112
+msgctxt "Job Group Singular Name."
+msgid "group"
+msgstr ""
+
+#: src/Taxonomies.php:113
+msgctxt "Job Groups Plural Name."
+msgid "groups"
+msgstr ""
+
+#: src/Taxonomies.php:128
+msgctxt "Job Region Singular Name."
+msgid "region"
+msgstr ""
+
+#: src/Taxonomies.php:129
+msgctxt "Job Regions Plural Name."
+msgid "regions"
 msgstr ""
