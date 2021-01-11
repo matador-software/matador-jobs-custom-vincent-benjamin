@@ -6,7 +6,7 @@
 - Requires at least: 5.6
 - Requires at least Matador Jobs version: 3.7.0
 - Tested up to: 5.6.0
-- Stable tag: 1.0.0
+- Stable tag: 2.0.1
 - Requires PHP: 5.6
 - License: GPLv3 or later
 - License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -30,7 +30,7 @@ This is a custom extension plugin and support is available directly from Matador
 
 == Changelog ==
 
-= 2.0.0 - Jan 11, 2021 =
+= 2.0.1 - Jan 11, 2021 =
 
 - Added shortcode `[matador_custom_search]` with `hidden` arg. Include `field:value` pairs separated by a comma to the hidden arg to define aspects of a search. Example: `[matador_custom_search fields=keyword hidden=group:accounting,region:los-angeles]`
 

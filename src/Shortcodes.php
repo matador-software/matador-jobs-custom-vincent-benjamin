@@ -1,6 +1,6 @@
 <?php
 /**
- * Taxonomies
+ * Shortcodes
  *
  * @link        http://matadorjobs.com/
  * @since       2.0.0
@@ -62,15 +62,17 @@ class Shortcodes {
 	}
 
 	/**
-	 * @param $args
+	 * Search Form Args Filter Function
+	 *
+	 * Filter the custom search form values.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param array $args
+	 *
+	 * @return array
 	 */
 	public static function search_form_args( $args ) {
-
-		/**
-		 * Filter: Search Form Arg "Fields" Allowed Values
-		 * @see TemplateSupport::search() for documentation
-		 */
-		$allowed_fields = apply_filters( 'matador_search_form_arg_fields', array_merge( Job_Taxonomies::registered_taxonomies(), array( 'keyword', 'reset' ) ) );
 
 		if ( ! empty( $args['hidden'] ) ) {
 			if ( is_string( $args['hidden'] ) ) {
